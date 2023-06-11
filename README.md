@@ -10,7 +10,7 @@
     <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/npm.svg" alt="npm version">
   </a>
 	
-  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/LICENSE">
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/LICENSE">
     <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/license.svg" alt="MIT license">
   </a>
 
