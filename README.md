@@ -1,18 +1,18 @@
 <p>
-  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/teclado-virtual.png">
-	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/teclado-virtual.png">
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
+	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
   </a>
 
   <a href="https://www.npmjs.com/package/virtual-keyboard-react-simple">
-    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/npm.svg" alt="npm version">
+    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/npm.svg" alt="npm version">
   </a>
 	
-  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/LICENSE">
-    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/license.svg" alt="MIT license">
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/LICENSE">
+    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/license.svg" alt="MIT license">
   </a>
 
-  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/actions">
-     <img alt="Build Status" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/build.svg" />
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/actions">
+     <img alt="Build Status" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/build.svg" />
   </a>
   
   <!-- <a href="https://github.com/hodgef/simple-keyboard/actions">
@@ -87,4 +87,4 @@ Want to create your own module? Check out the [Modules page](https://hodgef.com/
 ## ✅ Constribuciones
 
 Los problemas siempre son bienvenidos. Siéntase libre de enviar cualquier problema que tenga en:
-[https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/issues](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/issues)
+[https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/issues](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/issues)
