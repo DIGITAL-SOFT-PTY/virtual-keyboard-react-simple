@@ -1,13 +1,13 @@
 {
   "name": "virtual-keyboard-react-simple",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Teclado Virtual para aplicaciones en react js.",
   "repository": {
     "type": "git",
     "url": "https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js"
   },
   "bugs": {
-		"url": "https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/issues"
+		"url": "https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/issues" 
 	},
 	"homepage": "https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/#readme",
   "main": "index.js",
