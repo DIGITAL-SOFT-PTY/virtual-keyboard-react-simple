@@ -29,7 +29,7 @@
 [Demo Showcase (Vanilla, Angular, React, Vue)](https://simple-keyboard.com/demo) -->
 
 ## 📦 Instalación
-- npm i virtual-keyboard-react-simple --save
+> npm i virtual-keyboard-react-simple --save
 
 <!-- You can use simple-keyboard as a `<script>` tag from a CDN, or install it from npm.
 
