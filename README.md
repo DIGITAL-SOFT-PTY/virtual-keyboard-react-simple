@@ -1,6 +1,3 @@
-
-**KEYBOARD VIRTUAL**
-
 <p>
   <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/teclado-virtual.png">
 	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/teclado-virtual.png">
