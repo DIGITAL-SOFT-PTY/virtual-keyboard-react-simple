@@ -31,7 +31,8 @@
 <!-- ## 🚀 Demo
 [Demo Showcase (Vanilla, Angular, React, Vue)](https://simple-keyboard.com/demo) -->
 
-## 📦 Instalaciión y Usos
+## 📦 Instalación
+- npm i virtual-keyboard-react-simple --save
 
 <!-- You can use simple-keyboard as a `<script>` tag from a CDN, or install it from npm.
 
@@ -42,8 +43,8 @@ Check out the [simple-keyboard documentation](https://simple-keyboard.com/docume
 
 Feel free to browse the [Questions & Answers (FAQ)](https://simple-keyboard.com/qa-use-cases/) page for common use-cases. -->
 
-### Para ejecutar el demo en su computadora
-- Clone este repositorio
+## 📦 Uso
+- Clone este repositorio [Demo Keyboard](https://github.com/DIGITAL-SOFT-PTY/demo-keyboard-react)
 - `npm install`
 - `npm start`
 - Visit [http://localhost:4200/](http://localhost:4200/)
