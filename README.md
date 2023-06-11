@@ -11,7 +11,7 @@
   </a>
 	
   <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/LICENSE">
-    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/license.svg" alt="MIT license">
+    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/license.svg" alt="MIT license">
   </a>
 
   <a href="https://github.com/hodgef/simple-keyboard/actions">
