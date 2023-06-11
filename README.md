@@ -6,25 +6,25 @@
 	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/teclado-virtual.png">
   </a>
 
-  <a href="https://www.npmjs.com/package/simple-keyboard">
-    <img src="https://badgen.net/npm/v/simple-keyboard?color=blue" alt="npm version">
+  <a href="https://www.npmjs.com/package/virtual-keyboard-react-simple">
+    <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/npm.svg" alt="npm version">
   </a>
 	
   <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/LICENSE">
     <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/license.svg" alt="MIT license">
   </a>
 
-  <a href="https://github.com/hodgef/simple-keyboard/actions">
-     <img alt="Build Status" src="https://github.com/hodgef/simple-keyboard/workflows/Build/badge.svg" />
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/actions">
+     <img alt="Build Status" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/build.svg" />
   </a>
   
-  <a href="https://github.com/hodgef/simple-keyboard/actions">
+  <!-- <a href="https://github.com/hodgef/simple-keyboard/actions">
      <img alt="Publish Status" src="https://github.com/hodgef/simple-keyboard/workflows/Publish/badge.svg" />
-  </a>
+  </a> -->
 	
-  <a href="https://gitlab.com/hodgef/simple-keyboard" target="_blank">
+  <!-- <a href="https://gitlab.com/hodgef/simple-keyboard" target="_blank">
      <img alt="Mirroring" src="https://github.com/hodgef/simple-keyboard/actions/workflows/mirroring.yml/badge.svg" />
-  </a>
+  </a> -->
 </p>
 <blockquote>Teclado Virtual para React js. Compatible con Javascript, React Js y Typescript.</blockquote>
 
