@@ -3,7 +3,7 @@
 
 <p>
   <a href="https://simple-keyboard.com/demo">
-	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://user-images.githubusercontent.com/25509135/187999993-fb5422fd-a56f-4a9a-84a9-55c94478f61c.gif">
+	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-js/blob/main/resources/teclado-virtual.png">
   </a>
 
   <a href="https://www.npmjs.com/package/simple-keyboard">
