@@ -1,5 +1,12 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+/**
+ * Keyboard.ts
+ * Ing: Samuel Vasquez
+ * Email: samyr0722@gmail.com
+ * Date Start: 10-junio-2023 15:00
+ */
 
+
+import React, { CSSProperties, useEffect, useState } from 'react';
 
 interface ComponentProps {
   inputRef: any,

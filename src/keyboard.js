@@ -1,4 +1,10 @@
 "use strict";
+/**
+ * Keyboard.ts
+ * Ing: Samuel Vasquez
+ * Email: samyr0722@gmail.com
+ * Date Start: 10-junio-2023 15:00
+ */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
