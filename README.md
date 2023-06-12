@@ -28,32 +28,219 @@
 <!-- ## 🚀 Demo
 [Demo Showcase (Vanilla, Angular, React, Vue)](https://simple-keyboard.com/demo) -->
 
-## 📦 Instalación
+## 📦 Installation
+### with npm
 ``` 
 npm i virtual-keyboard-react-simple --save
 ``` 
+### with yarn
+``` 
+yarn add virtual-keyboard-react-simple
+``` 
 
-<!-- You can use simple-keyboard as a `<script>` tag from a CDN, or install it from npm.
-
-Check out the [Getting Started](https://simple-keyboard.com/getting-started) docs to begin. -->
-
-<!-- ## 📖 Documentation
-Check out the [simple-keyboard documentation](https://simple-keyboard.com/documentation) site.
-
-Feel free to browse the [Questions & Answers (FAQ)](https://simple-keyboard.com/qa-use-cases/) page for common use-cases. -->
-
-## 📦 Uso
+## Demo
 Clone este repositorio [Demo Keyboard](https://github.com/DIGITAL-SOFT-PTY/demo-keyboard-react)
+
+## Usage
 ``` 
-git clone git@github.com:DIGITAL-SOFT-PTY/demo-keyboard-react.git
+import React, { useRef, useState } from 'react';
+import { Keyboard } from 'virtual-keyboard-react-simple/src/keyboard';
+
+const KeyboarComponent = () => <Keyboard />;
 ``` 
-``` 
-npm install
-``` 
-``` 
-npm start 
-``` 
-Visit [http://localhost:4200/](http://localhost:4200/)
+
+## Props
+The props here are specific to this component but one can pass any prop to the underlying video tag eg className, style, muted, etc
+
+<table>
+  <thead>
+    <tr>
+      <td>prop</td>
+      <td>type</td>
+      <td>required</td>
+      <td>notes</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onClick</td>
+      <td>function</td>
+      <td>true</td>
+      <td>aqui nota</td>
+    </tr>
+    <tr>
+      <td>inputRef</td>
+      <td>input text</td>
+      <td>true</td>
+      <td>aqui nota</td>
+    </tr>
+    <tr>
+      <td>backgroundStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>contain background of keyboard.
+       Example: 
+       <code>
+       {
+            display: 'flex',
+            backgroundImage: `url('./assets/bg-teclado.png')`,
+            backgroundRepeat: 'no-repeat',
+            position: 'fixed',
+            width: '1065px',
+            height: '361px',
+            bottom: '0px',
+            padding: '1rem',
+            zIndex: '100'
+          }
+        </code>
+       </td>
+    </tr>
+    <tr>
+      <td>backgroundButtonStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>
+      contain background of button.
+       Example: 
+       <code>
+       {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '80px',
+            height: '80px',
+            cursor: 'pointer',
+            color: '#4D4D4F',
+            backgroundImage: `url('./assets/key.png')`,
+            backgroundRepeat: 'no-repeat',
+            fontSize: '30px',
+            fontWeight: 'bold',
+          }
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>rowStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>
+      contain style row.
+       Example: 
+       <code>
+       {
+            display: 'flex',
+            height: '80px',
+            marginLeft: '0px',
+            marginTop: '0px',
+            padding: '0px'
+          }
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>leftStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>
+      contain style left column.
+       Example: 
+       <code>
+       {
+            background: 'transparent',
+            width: '790px'
+          }
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>rigthStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>contain style rigth column.
+       Example: 
+       <code>
+          {
+            background: 'transparent',
+            width: '275px'
+          }
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>backgroundButtonSpaceStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>
+        contain style button space.
+       Example: 
+       <code>
+          {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '475px',
+            height: '80px',
+            cursor: 'pointer',
+            color: '#4D4D4F',
+            backgroundImage: `url('./assets/espacio.png')`,
+            backgroundRepeat: 'no-repeat',
+            fontSize: '30px',
+            fontWeight: 'bold'
+          }
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>backgroundButtonDeleteStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>
+      contain style button delete.
+       Example: 
+       <code>
+          {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '157px',
+            height: '80px',
+            cursor: 'pointer',
+            color: '#4D4D4F',
+            backgroundImage: `url('./assets/borrar.png')`,
+            backgroundRepeat: 'no-repeat',
+            fontSize: '30px',
+            fontWeight: 'bold',
+          }
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>backgroundButtonPuntoStyle</td>
+      <td>object</td>
+      <td>true</td>
+      <td>
+        contain style button punto.
+       Example: 
+       <code>
+          {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '157px',
+            height: '80px',
+            cursor: 'pointer',
+            color: '#4D4D4F',
+            backgroundImage: `url('./assets/borrar.png')`,
+            backgroundRepeat: 'no-repeat',
+            fontSize: '30px',
+            fontWeight: 'bold'
+          }
+        </code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Otras Versiones
 - [React.js](https://github.com/hodgef/react-simple-keyboard)
