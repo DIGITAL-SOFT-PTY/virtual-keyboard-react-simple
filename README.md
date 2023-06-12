@@ -14,19 +14,8 @@
   <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/actions">
      <img alt="Build Status" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/build.svg" />
   </a>
-  
-  <!-- <a href="https://github.com/hodgef/simple-keyboard/actions">
-     <img alt="Publish Status" src="https://github.com/hodgef/simple-keyboard/workflows/Publish/badge.svg" />
-  </a> -->
-	
-  <!-- <a href="https://gitlab.com/hodgef/simple-keyboard" target="_blank">
-     <img alt="Mirroring" src="https://github.com/hodgef/simple-keyboard/actions/workflows/mirroring.yml/badge.svg" />
-  </a> -->
 </p>
 <blockquote>Teclado Virtual para React js. Compatible con Javascript, React Js y Typescript.</blockquote>
-
-<!-- ## 🚀 Demo
-[Demo Showcase (Vanilla, Angular, React, Vue)](https://simple-keyboard.com/demo) -->
 
 ## 📦 Installation
 ### with npm
@@ -38,7 +27,7 @@ npm i virtual-keyboard-react-simple --save
 yarn add virtual-keyboard-react-simple
 ``` 
 
-## Demo
+## 🚀 Demo
 Clone este repositorio [Demo Keyboard](https://github.com/DIGITAL-SOFT-PTY/demo-keyboard-react)
 
 ## Usage
@@ -83,7 +72,7 @@ The props here are specific to this component but one can pass any prop to the u
        <code>
        {
             display: 'flex',
-            backgroundImage: `url('./assets/bg-teclado.png')`,
+            backgroundImage: `url()')`,
             backgroundRepeat: 'no-repeat',
             position: 'fixed',
             width: '1065px',
@@ -111,7 +100,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('./assets/key.png')`,
+            backgroundImage: `url('')`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold',
@@ -182,7 +171,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('./assets/espacio.png')`,
+            backgroundImage: `url('')`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold'
@@ -206,7 +195,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('./assets/borrar.png')`,
+            backgroundImage: `url('')`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold',
@@ -230,7 +219,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('./assets/borrar.png')`,
+            backgroundImage: `url('')`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold'
@@ -242,26 +231,13 @@ The props here are specific to this component but one can pass any prop to the u
 </table>
 
 
-### Otras Versiones
+## ❤️ Otras Versiones
 - [React.js](https://github.com/hodgef/react-simple-keyboard)
 - [Angular Js](https://github.com/parwinder-singh/virtual-keyboard)
 - [Vue.js](https://github.com/martywallace/vue-keyboard)
 
-<!-- ### Questions? Join the chat
-<a href="https://discordapp.com/invite/SJexsCG" title="Join our Discord chat" target="_blank"><img src="https://discordapp.com/api/guilds/498978399801573396/widget.png?style=banner2" align="center"></a> -->
-
-<!-- ## ✳️ Modules
-You can extend simple-keyboard's functionality with [modules](https://hodgef.com/simple-keyboard/modules/). Such as:
-
-- [Autocorrect](https://hodgef.com/simple-keyboard/modules/autocorrect/)
-- [Input Mask](https://hodgef.com/simple-keyboard/modules/input-mask/)
-- [Key Navigation](https://hodgef.com/simple-keyboard/modules/key-navigation/)
-- [Swipe Keyboard](https://hodgef.com/simple-keyboard/modules/swipe-keyboard/)
-
-Want to create your own module? Check out the [Modules page](https://hodgef.com/simple-keyboard/modules/) for instructions. -->
 
 ## 🎯 Compatibility
-
 - Internet Explorer 11+
 - Edge 16+
 - Edge (Anaheim/Edge Chromium) 79+
@@ -275,3 +251,6 @@ Want to create your own module? Check out the [Modules page](https://hodgef.com/
 
 Los problemas siempre son bienvenidos. Siéntase libre de enviar cualquier problema que tenga en:
 [https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/issues](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/issues)
+
+## ★ License
+[![license](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/license.svg?style=flat-square)](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/LICENSE)
