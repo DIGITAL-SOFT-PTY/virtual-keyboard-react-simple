@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
 <p>
   <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
 	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
@@ -17,20 +19,20 @@
 </p>
 <blockquote>Teclado Virtual para React js. Compatible con Javascript, React Js y Typescript.</blockquote>
 
-## 📦 Installation
-### with npm
+## <i class="fas fa-circle"></i> Installation 
+### <i class="fas fa-terminal"></i> with npm
 ``` 
 npm i virtual-keyboard-react-simple --save
 ``` 
-### with yarn
+### <i class="fas fa-terminal"></i> with yarn
 ``` 
 yarn add virtual-keyboard-react-simple
 ``` 
 
-## 🚀 Demo
+## <i class="fas fa-terminal"></i> Demo
 Clone este repositorio [Demo Keyboard](https://github.com/DIGITAL-SOFT-PTY/demo-keyboard-react)
 
-## Usage
+## <i class="fas fa-code"></i> Usage
 ``` 
 import React, { useRef, useState } from 'react';
 import { Keyboard } from 'virtual-keyboard-react-simple/src/keyboard';
@@ -38,8 +40,8 @@ import { Keyboard } from 'virtual-keyboard-react-simple/src/keyboard';
 const KeyboarComponent = () => <Keyboard />;
 ``` 
 
-## Props
-The props here are specific to this component but one can pass any prop to the underlying video tag eg className, style, muted, etc
+## <i class="fas fa-keyboard"></i> Props
+The props here are specific to this component, but one can pass any props to the tag, eg onClick, inputRef, backgroundStyle, etc.
 
 <table>
   <thead>
@@ -55,13 +57,24 @@ The props here are specific to this component but one can pass any prop to the u
       <td>onClick</td>
       <td>function</td>
       <td>true</td>
-      <td>aqui nota</td>
+      <td>contain callbak. Example.
+      <code>
+          onClick={(value: string) => {}}
+      </code>
+      </td>
     </tr>
     <tr>
       <td>inputRef</td>
       <td>input text</td>
       <td>true</td>
-      <td>aqui nota</td>
+      <td>
+      contain the input text, pass with ref.
+       Example:
+       <code>
+        <input ref={inputRef} value={inputValue} />
+        <Keyboard inputRef={inputRef} />
+       </code>
+      </td>
     </tr>
     <tr>
       <td>backgroundStyle</td>
@@ -72,7 +85,7 @@ The props here are specific to this component but one can pass any prop to the u
        <code>
        {
             display: 'flex',
-            backgroundImage: `url()')`,
+            backgroundImage: `url()`,
             backgroundRepeat: 'no-repeat',
             position: 'fixed',
             width: '1065px',
@@ -100,7 +113,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('')`,
+            backgroundImage: `url()`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold',
@@ -171,7 +184,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('')`,
+            backgroundImage: `url()`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold'
@@ -195,7 +208,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('')`,
+            backgroundImage: `url()`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold',
@@ -219,7 +232,7 @@ The props here are specific to this component but one can pass any prop to the u
             height: '80px',
             cursor: 'pointer',
             color: '#4D4D4F',
-            backgroundImage: `url('')`,
+            backgroundImage: `url()`,
             backgroundRepeat: 'no-repeat',
             fontSize: '30px',
             fontWeight: 'bold'
@@ -231,7 +244,7 @@ The props here are specific to this component but one can pass any prop to the u
 </table>
 
 
-## ❤️ Otras Versiones
+## <i class="fas fa-code-branch"></i> Otras Versiones
 - [React.js](https://github.com/hodgef/react-simple-keyboard)
 - [Angular Js](https://github.com/parwinder-singh/virtual-keyboard)
 - [Vue.js](https://github.com/martywallace/vue-keyboard)
@@ -247,10 +260,10 @@ The props here are specific to this component but one can pass any prop to the u
 
 <!-- > Note: If you don't want to support old browsers, you can use the Modern Browsers bundle ([index.modern.js](https://github.com/hodgef/simple-keyboard/blob/master/build)). -->
 
-## ✅ Constribuciones
+## <i class="fas fa-check"></i> Constribuciones
 
 Los problemas siempre son bienvenidos. Siéntase libre de enviar cualquier problema que tenga en:
 [https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/issues](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/issues)
 
-## ★ License
+## <i class="fas fa-star"></i> License
 [![license](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/license.svg?style=flat-square)](https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/LICENSE)
