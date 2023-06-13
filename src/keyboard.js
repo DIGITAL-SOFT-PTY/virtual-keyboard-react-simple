@@ -117,26 +117,6 @@ var Keyboard = function (_a) {
                                 }
                             }
                         } }, item));
-                /* case '↑':
-                  return (
-                    <div key={`${index}_${indexR}`}
-                      style={backgroundButtonStyle}
-                      onClick={() => {
-                        setKeyAlpha(keysMayuscula);
-                      }}>
-                      {item}
-                    </div>
-                  );
-                case '↓':
-                  return (
-                    <div key={`${index}_${indexR}`}
-                      style={backgroundButtonStyle}
-                      onClick={() => {
-                        setKeyAlpha(keysMinuscula);
-                      }}>
-                      {item}
-                    </div>
-                  ); */
                 case 'Espacio':
                     return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
                             //onClick(item);
