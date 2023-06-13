@@ -80,19 +80,13 @@ The props here are specific to this component, but one can pass any props to the
       <td>backgroundStyle</td>
       <td>object</td>
       <td>true</td>
-      <td>contain background of keyboard.
+      <td>contain background style of keyboard.
        Example: 
        <code>
        {
-            display: 'flex',
-            backgroundImage: `url()`,
-            backgroundRepeat: 'no-repeat',
-            position: 'fixed',
-            width: '1065px',
-            height: '361px',
-            bottom: '0px',
-            padding: '1rem',
-            zIndex: '100'
+            backgroundImage: url(),
+            backgroundRepeat: no-repeat,
+            position: fixed
           }
         </code>
        </td>
@@ -102,68 +96,12 @@ The props here are specific to this component, but one can pass any props to the
       <td>object</td>
       <td>true</td>
       <td>
-      contain background of button.
+      contain background style of button.
        Example: 
        <code>
        {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '80px',
-            height: '80px',
-            cursor: 'pointer',
-            color: '#4D4D4F',
-            backgroundImage: `url()`,
-            backgroundRepeat: 'no-repeat',
-            fontSize: '30px',
-            fontWeight: 'bold',
-          }
-        </code>
-      </td>
-    </tr>
-    <tr>
-      <td>rowStyle</td>
-      <td>object</td>
-      <td>true</td>
-      <td>
-      contain style row.
-       Example: 
-       <code>
-       {
-            display: 'flex',
-            height: '80px',
-            marginLeft: '0px',
-            marginTop: '0px',
-            padding: '0px'
-          }
-        </code>
-      </td>
-    </tr>
-    <tr>
-      <td>leftStyle</td>
-      <td>object</td>
-      <td>true</td>
-      <td>
-      contain style left column.
-       Example: 
-       <code>
-       {
-            background: 'transparent',
-            width: '790px'
-          }
-        </code>
-      </td>
-    </tr>
-    <tr>
-      <td>rigthStyle</td>
-      <td>object</td>
-      <td>true</td>
-      <td>contain style rigth column.
-       Example: 
-       <code>
-          {
-            background: 'transparent',
-            width: '275px'
+            backgroundImage: url(),
+            backgroundRepeat: no-repeat
           }
         </code>
       </td>
