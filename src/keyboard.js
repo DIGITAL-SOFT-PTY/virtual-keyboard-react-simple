@@ -5,6 +5,10 @@
  * Email: samyr0722@gmail.com
  * Date Start: 10-junio-2023 15:00
  */
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -28,22 +32,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Keyboard = void 0;
 var react_1 = __importStar(require("react"));
+var styled_components_1 = __importDefault(require("styled-components"));
 ;
 var keysMayuscula = [
-    "Q W E R T Y U I O P",
-    "A S D F G H J K L Ñ",
-    "↓ Z X C V B N M Borrar",
-    "- . Espacio .com"
+    "Q W E R T Y U I O P 7 8 9",
+    "A S D F G H J K L Ñ 4 5 6",
+    "↓ Z X C V B N M Borrar 1 2 3",
+    "- . Espacio .com 0 @ -"
 ];
 var keysMinuscula = [
-    "q w e r t y u i o p",
-    "a s d f g h j k l ñ",
-    "↑ z x c v b n m Borrar",
-    "- . Espacio .com"
+    "q w e r t y u i o p 7 8 9",
+    "a s d f g h j k l ñ 4 5 6",
+    "↑ z x c v b n m Borrar 1 2 3",
+    "- . Espacio .com 0 @ -"
 ];
 var keysSpetial = [
     "! # $ % & / ( ) = ?",
@@ -51,14 +59,8 @@ var keysSpetial = [
     "↓ ; , : < > + ~ Borrar",
     "- . Espacio .com"
 ];
-var keysNumber = [
-    "7 8 9",
-    "4 5 6",
-    "1 2 3",
-    "0 @ -"
-];
 var Keyboard = function (_a) {
-    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, rowStyle = _a.rowStyle, leftStyle = _a.leftStyle, rigthStyle = _a.rigthStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, backgroundButtonDeleteStyle = _a.backgroundButtonDeleteStyle, backgroundButtonPuntoStyle = _a.backgroundButtonPuntoStyle, onClick = _a.onClick;
+    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, backgroundButtonDeleteStyle = _a.backgroundButtonDeleteStyle, backgroundButtonPuntoStyle = _a.backgroundButtonPuntoStyle, onClick = _a.onClick;
     var _b = (0, react_1.useState)([]), keyAlpha = _b[0], setKeyAlpha = _b[1];
     var _c = (0, react_1.useState)(0), position = _c[0], setPosition = _c[1];
     (0, react_1.useEffect)(function () {
@@ -74,125 +76,8 @@ var Keyboard = function (_a) {
         var key = itemR.split(' ');
         return (key.map(function (item, index) {
             switch (item) {
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                case '0':
-                case '@':
-                case '_':
-                case 'Q':
-                case 'q':
-                case 'W':
-                case 'w':
-                case 'E':
-                case 'e':
-                case 'R':
-                case 'r':
-                case 'T':
-                case 't':
-                case 'Y':
-                case 'y':
-                case 'U':
-                case 'u':
-                case 'I':
-                case 'i':
-                case 'O':
-                case 'o':
-                case 'P':
-                case 'p':
-                case 'A':
-                case 'a':
-                case 'S':
-                case 's':
-                case 'D':
-                case 'd':
-                case 'F':
-                case 'f':
-                case 'G':
-                case 'g':
-                case 'H':
-                case 'h':
-                case 'J':
-                case 'j':
-                case 'K':
-                case 'k':
-                case 'L':
-                case 'l':
-                case 'Ñ':
-                case 'ñ':
-                case 'Z':
-                case 'z':
-                case 'X':
-                case 'x':
-                case 'C':
-                case 'c':
-                case 'V':
-                case 'v':
-                case 'B':
-                case 'b':
-                case 'N':
-                case 'n':
-                case 'M':
-                case 'm':
-                case '.':
-                case '-':
-                case '!':
-                case '#':
-                case '$':
-                case '%':
-                case '&':
-                case '/':
-                case '(':
-                case ')':
-                case '=':
-                case '?':
-                case '^':
-                case '¿':
-                case '|':
-                case '°':
-                case '*':
-                case '´':
-                case '{':
-                case '}':
-                case '[':
-                case ']':
-                case ';':
-                case ',':
-                case ':':
-                case '<':
-                case '>':
-                case '+':
-                case '~':
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
-                            if (inputRef.current) {
-                                var text = inputRef.current.value;
-                                if (text.length <= 0) { //esta vacia se agrega al final
-                                    onClick("".concat(text).concat(item));
-                                }
-                                else { //el cursor esta en la última posición
-                                    var valueLength = text.length;
-                                    onClick("".concat(text).concat(item));
-                                    if (position === valueLength) {
-                                        onClick("".concat(text).concat(item));
-                                    }
-                                    else {
-                                        var izq = text.substring(0, position);
-                                        var der = text.slice(position);
-                                        onClick("".concat(izq).concat(item).concat(der));
-                                    }
-                                }
-                                inputRef.current.setSelectionRange(position + 1, position + 1);
-                                setPosition((position + 1));
-                            }
-                        } }, item));
                 case '.com':
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonPuntoStyle, onClick: function () {
+                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonPuntoStyle, onClick: function () {
                             if (inputRef.current) {
                                 var value = inputRef.current.value;
                                 onClick("".concat(value).concat(item).toUpperCase());
@@ -201,7 +86,7 @@ var Keyboard = function (_a) {
                             }
                         } }, ".com"));
                 case 'Borrar':
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonDeleteStyle, onClick: function () {
+                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonDeleteStyle, onClick: function () {
                             if (inputRef.current) {
                                 var text = inputRef.current.value;
                                 if (text.length > 1) {
@@ -232,35 +117,74 @@ var Keyboard = function (_a) {
                                 }
                             }
                         } }, item));
-                case '↑':
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
-                            setKeyAlpha(keysMayuscula);
-                        } }, item));
+                /* case '↑':
+                  return (
+                    <div key={`${index}_${indexR}`}
+                      style={backgroundButtonStyle}
+                      onClick={() => {
+                        setKeyAlpha(keysMayuscula);
+                      }}>
+                      {item}
+                    </div>
+                  );
                 case '↓':
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
-                            setKeyAlpha(keysMinuscula);
-                        } }, item));
+                  return (
+                    <div key={`${index}_${indexR}`}
+                      style={backgroundButtonStyle}
+                      onClick={() => {
+                        setKeyAlpha(keysMinuscula);
+                      }}>
+                      {item}
+                    </div>
+                  ); */
                 case 'Espacio':
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
+                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
                             //onClick(item);
                             //if (isValidando)
                             //return;
                         } }, " "));
                 default:
-                    return (react_1.default.createElement("div", { key: "btn_".concat(index, "_").concat(indexR), id: "btn_".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
-                            //onClick(`item`);
-                            /*this.props.onClick(`${value}${item}`); */
+                    return (react_1.default.createElement(Button, { key: "".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
+                            if (item === '↑') {
+                                setKeyAlpha(keysMayuscula);
+                                return;
+                            }
+                            else if (item === '↓') {
+                                setKeyAlpha(keysMinuscula);
+                                return;
+                            }
+                            if (inputRef.current) {
+                                var text = inputRef.current.value;
+                                if (text.length <= 0) {
+                                    onClick("".concat(text).concat(item));
+                                }
+                                else {
+                                    var valueLength = text.length;
+                                    onClick("".concat(text).concat(item));
+                                    if (position === valueLength) {
+                                        onClick("".concat(text).concat(item));
+                                    }
+                                    else {
+                                        var izq = text.substring(0, position);
+                                        var der = text.slice(position);
+                                        onClick("".concat(izq).concat(item).concat(der));
+                                    }
+                                }
+                                inputRef.current.setSelectionRange(position + 1, position + 1);
+                                setPosition((position + 1));
+                            }
                         } }, item));
             }
         }));
     };
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { style: backgroundStyle },
-            react_1.default.createElement("div", { style: leftStyle }, keyAlpha && keyAlpha.map(function (item, index) {
-                return (react_1.default.createElement("div", { key: "div_".concat(index), style: rowStyle }, setKey(item, index)));
-            })),
-            react_1.default.createElement("div", { style: rigthStyle }, keysNumber && keysNumber.map(function (item, index) {
-                return (react_1.default.createElement("div", { key: "div_".concat(index), style: rowStyle }, setKey(item, index)));
-            })))));
+    return (react_1.default.createElement(ContainerMaster, { style: backgroundStyle },
+        react_1.default.createElement(ContainerRow, null, keyAlpha && keyAlpha.map(function (item, index) {
+            return (react_1.default.createElement(Row, { key: index }, setKey(item, index)));
+        }))));
 };
 exports.Keyboard = Keyboard;
+var ContainerMaster = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  width: 1065px;\n  height: 361px;\n  bottom: 0px;\n  padding: 0.5rem;\n  z-index: 100;\n"], ["\n  display: flex;\n  width: 1065px;\n  height: 361px;\n  bottom: 0px;\n  padding: 0.5rem;\n  z-index: 100;\n"])));
+var ContainerRow = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background: transparent;\n  width: 1065px;\n"], ["\n  background: transparent;\n  width: 1065px;\n"])));
+var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"], ["\n  display: flex;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"])));
+var Button = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"])));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;

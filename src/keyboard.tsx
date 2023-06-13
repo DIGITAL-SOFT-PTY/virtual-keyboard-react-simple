@@ -7,33 +7,31 @@
 
 
 import React, { CSSProperties, useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
 
 interface ComponentProps {
   inputRef: any,
   backgroundStyle: CSSProperties;
   backgroundButtonStyle: CSSProperties;
-  rowStyle: CSSProperties;
-  leftStyle: CSSProperties;
-  rigthStyle: CSSProperties;
   backgroundButtonSpaceStyle: CSSProperties;
   backgroundButtonDeleteStyle: CSSProperties;
   backgroundButtonPuntoStyle: CSSProperties;
-
   onClick: (value: string) => void;
+  useSund?: boolean;
 };
 
 const keysMayuscula: any = [
-  "Q W E R T Y U I O P",
-  "A S D F G H J K L Ñ",
-  "↓ Z X C V B N M Borrar",
-  "- . Espacio .com"
+  "Q W E R T Y U I O P 7 8 9",
+  "A S D F G H J K L Ñ 4 5 6",
+  "↓ Z X C V B N M Borrar 1 2 3",
+  "- . Espacio .com 0 @ -"
 ];
 
 const keysMinuscula: any = [
-  "q w e r t y u i o p",
-  "a s d f g h j k l ñ",
-  "↑ z x c v b n m Borrar",
-  "- . Espacio .com"
+  "q w e r t y u i o p 7 8 9",
+  "a s d f g h j k l ñ 4 5 6",
+  "↑ z x c v b n m Borrar 1 2 3",
+  "- . Espacio .com 0 @ -"
 ];
 
 const keysSpetial: any = [
@@ -43,20 +41,10 @@ const keysSpetial: any = [
   "- . Espacio .com"
 ];
 
-const keysNumber: any = [
-  "7 8 9",
-  "4 5 6",
-  "1 2 3",
-  "0 @ -"
-];
-
 export const Keyboard: React.FC<ComponentProps> = ({
   inputRef,
   backgroundStyle,
   backgroundButtonStyle,
-  rowStyle,
-  leftStyle,
-  rigthStyle,
   backgroundButtonSpaceStyle,
   backgroundButtonDeleteStyle,
   backgroundButtonPuntoStyle,
@@ -77,117 +65,14 @@ export const Keyboard: React.FC<ComponentProps> = ({
     }
   }, [this]);
 
-  const setKey = (itemR: any, indexR: any) => {
+  const setKey = (itemR: any, indexR: number) => {
     const key = itemR.split(' ');
 
-    return (key.map((item: any, index: any) => {
+    return (key.map((item: string, index: any) => {
       switch (item) {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-        case '0':
-        case '@':
-        case '_':
-
-        case 'Q': case 'q':
-        case 'W': case 'w':
-        case 'E': case 'e':
-        case 'R': case 'r':
-        case 'T': case 't':
-        case 'Y': case 'y':
-        case 'U': case 'u':
-        case 'I': case 'i':
-        case 'O': case 'o':
-        case 'P': case 'p':
-
-        case 'A': case 'a':
-        case 'S': case 's':
-        case 'D': case 'd':
-        case 'F': case 'f':
-        case 'G': case 'g':
-        case 'H': case 'h':
-        case 'J': case 'j':
-        case 'K': case 'k':
-        case 'L': case 'l':
-        case 'Ñ': case 'ñ':
-
-        case 'Z': case 'z':
-        case 'X': case 'x':
-        case 'C': case 'c':
-        case 'V': case 'v':
-        case 'B': case 'b':
-        case 'N': case 'n':
-        case 'M': case 'm':
-
-        case '.':
-        case '-':
-
-        case '!':
-        case '#':
-        case '$':
-        case '%':
-        case '&':
-        case '/':
-        case '(':
-        case ')':
-        case '=':
-        case '?':
-        case '^':
-        case '¿':
-        case '|':
-        case '°':
-        case '*':
-        case '´':
-        case '{':
-        case '}':
-        case '[':
-        case ']':
-        case ';':
-        case ',':
-        case ':':
-        case '<':
-        case '>':
-        case '+':
-        case '~':
-
-          return (
-            <div key={`btn_${index}_${indexR}`}
-              id={`btn_${index}_${indexR}`}
-              style={backgroundButtonStyle}
-              onClick={() => {
-                if (inputRef.current) {
-                  const text = inputRef.current.value;
-                  if (text.length <= 0) { //esta vacia se agrega al final
-                    onClick(`${text}${item}`);
-                  } else { //el cursor esta en la última posición
-                    const valueLength = text.length;
-                    onClick(`${text}${item}`);
-                    if (position === valueLength) {
-                      onClick(`${text}${item}`);
-                    } else {
-                      const izq = text.substring(0, position)
-                      const der = text.slice(position);
-                      onClick(`${izq}${item}${der}`);
-                    }
-                  }
-                  inputRef.current.setSelectionRange(position + 1, position + 1);
-                  setPosition((position + 1));
-                }
-              }
-              }>
-              {item}
-            </div>
-          );
-
         case '.com':
           return (
-            <div key={`btn_${index}_${indexR}`} id={`btn_${index}_${indexR}`}
+            <div key={`${index}_${indexR}`}
               style={backgroundButtonPuntoStyle}
               onClick={() => {
                 if (inputRef.current) {
@@ -196,14 +81,14 @@ export const Keyboard: React.FC<ComponentProps> = ({
                   inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
                   setPosition((value.length + 4));
                 }
-              }} >
+              }}>
               {`.com`}
             </div>
           );
 
         case 'Borrar':
           return (
-            <div key={`btn_${index}_${indexR}`} id={`btn_${index}_${indexR}`}
+            <div key={`${index}_${indexR}`}
               style={backgroundButtonDeleteStyle}
               onClick={() => {
                 if (inputRef.current) {
@@ -237,30 +122,10 @@ export const Keyboard: React.FC<ComponentProps> = ({
               {item}
             </div>
           );
-        case '↑':
-          return (
-            <div key={`btn_${index}_${indexR}`} id={`btn_${index}_${indexR}`}
-              style={backgroundButtonStyle}
-              onClick={() => {
-                setKeyAlpha(keysMayuscula);
-              }}>
-              {item}
-            </div>
-          );
-        case '↓':
-          return (
-            <div key={`btn_${index}_${indexR}`} id={`btn_${index}_${indexR}`}
-              style={backgroundButtonStyle}
-              onClick={() => {
-                setKeyAlpha(keysMinuscula);
-              }}>
-              {item}
-            </div>
-          );
 
         case 'Espacio':
           return (
-            <div key={`btn_${index}_${indexR}`} id={`btn_${index}_${indexR}`}
+            <div key={`${index}_${indexR}`}
               style={backgroundButtonSpaceStyle}
               onClick={() => {
                 //onClick(item);
@@ -272,46 +137,89 @@ export const Keyboard: React.FC<ComponentProps> = ({
           );
         default:
           return (
-            <div key={`btn_${index}_${indexR}`} id={`btn_${index}_${indexR}`}
+            <Button key={`${index}_${indexR}`}
               style={backgroundButtonStyle}
               onClick={() => {
-                //onClick(`item`);
 
-                /*this.props.onClick(`${value}${item}`); */
+                if (item === '↑') {
+                  setKeyAlpha(keysMayuscula);
+                  return;
+                } else if (item === '↓') {
+                  setKeyAlpha(keysMinuscula);
+                  return;
+                }
+
+                if (inputRef.current) {
+                  const text = inputRef.current.value;
+                  if (text.length <= 0) {
+                    onClick(`${text}${item}`);
+                  } else {
+                    const valueLength = text.length;
+                    onClick(`${text}${item}`);
+                    if (position === valueLength) {
+                      onClick(`${text}${item}`);
+                    } else {
+                      const izq = text.substring(0, position)
+                      const der = text.slice(position);
+                      onClick(`${izq}${item}${der}`);
+                    }
+                  }
+                  inputRef.current.setSelectionRange(position + 1, position + 1);
+                  setPosition((position + 1));
+                }
               }} >
               {item}
-            </div>
+            </Button>
           );
       }
     }));
   }
 
-
   return (
-    <>
-
-      <div style={backgroundStyle} /* className={`$animate__animated animate__fadeInUp`} */>
-        <div style={leftStyle}>
-          {keyAlpha && keyAlpha.map((item: string, index: number) => {
-            return (
-              <div key={`div_${index}`}
-                style={rowStyle}>
-                {setKey(item, index)}
-              </div>
-            );
-          })}
-        </div>
-
-        <div style={rigthStyle}>
-          {keysNumber && keysNumber.map((item: string, index: number) => {
-            return (
-              <div key={`div_${index}`} style={rowStyle} >
-                {setKey(item, index)}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </>
+    <ContainerMaster style={backgroundStyle} /* className={`$animate__animated animate__fadeInUp`} */>
+      <ContainerRow>
+        {keyAlpha && keyAlpha.map((item: string, index: number) => {
+          return (
+            <Row key={index} >
+              {setKey(item, index)}
+            </Row>
+          );
+        })}
+      </ContainerRow>
+    </ContainerMaster>
   );
 };
+
+const ContainerMaster = styled.div`
+  display: flex;
+  width: 1065px;
+  height: 361px;
+  bottom: 0px;
+  padding: 0.5rem;
+  z-index: 100;
+`;
+
+const ContainerRow = styled.div`
+  background: transparent;
+  width: 1065px;
+`;
+
+const Row = styled.div`
+  display: flex;
+  height: 80px;
+  margin-left: 0px;
+  margin-top: 0px;
+  padding: 0px;
+`;
+
+const Button = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  color: #4D4D4F;
+  font-size: 30px;
+  font-weight: bold;
+`;
