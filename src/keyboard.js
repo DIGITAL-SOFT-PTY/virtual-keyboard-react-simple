@@ -42,16 +42,17 @@ var react_1 = __importStar(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
 ;
 var keysMayuscula = [
-    "Q W E R T Y U I O P 7 8 9",
-    "A S D F G H J K L Ñ 4 5 6",
-    "↓ Z X C V B N M ␡ 1 2 3",
-    "- . Espacio .com 0 @ -"
+    "1 2 3 4 5 6 7 8 9 0 ␡",
+    "Q W E R T Y U I O P",
+    "A S D F G H J K L Ñ",
+    "↓ Z X C V B N M ␡",
+    "- . Espacio .COM 0 @ -"
 ];
 var keysMinuscula = [
     "1 2 3 4 5 6 7 8 9 0 ␡",
-    "q w e r t y u i o p 7 8 9",
-    "a s d f g h j k l ñ 4 5 6",
-    "↑ z x c v b n m ␡ 1 2 3",
+    "q w e r t y u i o p",
+    "a s d f g h j k l ñ",
+    "↑ z x c v b n m",
     "- . Espacio .com 0 @ -"
 ];
 var keysSpetial = [
@@ -61,7 +62,7 @@ var keysSpetial = [
     "- . Espacio .com"
 ];
 var Keyboard = function (_a) {
-    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, backgroundButtonPuntoStyle = _a.backgroundButtonPuntoStyle, onClick = _a.onClick;
+    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, onClick = _a.onClick;
     var _b = (0, react_1.useState)([]), keyAlpha = _b[0], setKeyAlpha = _b[1];
     var _c = (0, react_1.useState)(0), position = _c[0], setPosition = _c[1];
     (0, react_1.useEffect)(function () {
@@ -77,15 +78,6 @@ var Keyboard = function (_a) {
         var key = itemR.split(' ');
         return (key.map(function (item, index) {
             switch (item) {
-                case '.com':
-                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonPuntoStyle, onClick: function () {
-                            if (inputRef.current) {
-                                var value = inputRef.current.value;
-                                onClick("".concat(value).concat(item).toUpperCase());
-                                inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
-                                setPosition((value.length + 4));
-                            }
-                        } }, ".com"));
                 case 'Espacio':
                     return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
                             //onClick(item);
@@ -100,6 +92,15 @@ var Keyboard = function (_a) {
                             }
                             if (item === '↓') {
                                 setKeyAlpha(keysMinuscula);
+                                return;
+                            }
+                            if (item === '.com' || item === '.COM') {
+                                if (inputRef.current) {
+                                    var value = inputRef.current.value;
+                                    onClick("".concat(value).concat(item).toUpperCase());
+                                    inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
+                                    setPosition((value.length + 4));
+                                }
                                 return;
                             }
                             if (item === '␡') {
@@ -154,7 +155,8 @@ var Keyboard = function (_a) {
                                 inputRef.current.setSelectionRange(position + 1, position + 1);
                                 setPosition((position + 1));
                             }
-                        } }, item));
+                        } },
+                        react_1.default.createElement(Text, null, item)));
             }
         }));
     };
@@ -166,6 +168,7 @@ var Keyboard = function (_a) {
 exports.Keyboard = Keyboard;
 var ContainerMaster = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  width: 1065px;\n  height: 361px;\n  bottom: 0px;\n  padding: 0.5rem;\n  z-index: 100;\n"], ["\n  display: flex;\n  width: 1065px;\n  height: 361px;\n  bottom: 0px;\n  padding: 0.5rem;\n  z-index: 100;\n"])));
 var ContainerRow = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background: transparent;\n  width: 1065px;\n"], ["\n  background: transparent;\n  width: 1065px;\n"])));
-var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"], ["\n  display: flex;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"])));
+var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"], ["\n  display: flex;\n  justify-content: center;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"])));
 var Button = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"])));
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var Text = styled_components_1.default.span(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

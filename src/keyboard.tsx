@@ -14,23 +14,23 @@ interface ComponentProps {
   backgroundStyle: CSSProperties;
   backgroundButtonStyle: CSSProperties;
   backgroundButtonSpaceStyle: CSSProperties;
-  backgroundButtonPuntoStyle: CSSProperties;
   onClick: (value: string) => void;
   useSund?: boolean;
 };
 
 const keysMayuscula: any = [
-  "Q W E R T Y U I O P 7 8 9",
-  "A S D F G H J K L Ñ 4 5 6",
-  "↓ Z X C V B N M ␡ 1 2 3",
-  "- . Espacio .com 0 @ -"
+  "1 2 3 4 5 6 7 8 9 0 ␡",
+  "Q W E R T Y U I O P",
+  "A S D F G H J K L Ñ",
+  "↓ Z X C V B N M ␡",
+  "- . Espacio .COM 0 @ -"
 ];
 
 const keysMinuscula: any = [
   "1 2 3 4 5 6 7 8 9 0 ␡",
-  "q w e r t y u i o p 7 8 9",
-  "a s d f g h j k l ñ 4 5 6",
-  "↑ z x c v b n m ␡ 1 2 3",
+  "q w e r t y u i o p",
+  "a s d f g h j k l ñ",
+  "↑ z x c v b n m",
   "- . Espacio .com 0 @ -"
 ];
 
@@ -46,7 +46,6 @@ export const Keyboard: React.FC<ComponentProps> = ({
   backgroundStyle,
   backgroundButtonStyle,
   backgroundButtonSpaceStyle,
-  backgroundButtonPuntoStyle,
   onClick,
 }) => {
 
@@ -69,22 +68,6 @@ export const Keyboard: React.FC<ComponentProps> = ({
 
     return (key.map((item: string, index: any) => {
       switch (item) {
-        case '.com':
-          return (
-            <div key={`${index}_${indexR}`}
-              style={backgroundButtonPuntoStyle}
-              onClick={() => {
-                if (inputRef.current) {
-                  const value = inputRef.current.value;
-                  onClick(`${value}${item}`.toUpperCase());
-                  inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
-                  setPosition((value.length + 4));
-                }
-              }}>
-              {`.com`}
-            </div>
-          );
-
         case 'Espacio':
           return (
             <div key={`${index}_${indexR}`}
@@ -110,6 +93,16 @@ export const Keyboard: React.FC<ComponentProps> = ({
 
                 if (item === '↓') {
                   setKeyAlpha(keysMinuscula);
+                  return;
+                }
+
+                if (item === '.com' || item === '.COM') {
+                  if (inputRef.current) {
+                    const value = inputRef.current.value;
+                    onClick(`${value}${item}`.toUpperCase());
+                    inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
+                    setPosition((value.length + 4));
+                  }
                   return;
                 }
 
@@ -144,8 +137,6 @@ export const Keyboard: React.FC<ComponentProps> = ({
                   return;
                 }
 
-
-
                 if (inputRef.current) {
                   const text = inputRef.current.value;
                   if (text.length <= 0) {
@@ -165,7 +156,7 @@ export const Keyboard: React.FC<ComponentProps> = ({
                   setPosition((position + 1));
                 }
               }} >
-              {item}
+              <Text>{item}</Text>
             </Button>
           );
       }
@@ -203,6 +194,7 @@ const ContainerRow = styled.div`
 
 const Row = styled.div`
   display: flex;
+  justify-content: center;
   height: 80px;
   margin-left: 0px;
   margin-top: 0px;
@@ -220,3 +212,5 @@ const Button = styled.div`
   font-size: 30px;
   font-weight: bold;
 `;
+
+const Text = styled.span``;
