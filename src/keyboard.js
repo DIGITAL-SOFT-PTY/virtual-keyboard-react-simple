@@ -44,23 +44,24 @@ var styled_components_1 = __importDefault(require("styled-components"));
 var keysMayuscula = [
     "Q W E R T Y U I O P 7 8 9",
     "A S D F G H J K L Ñ 4 5 6",
-    "↓ Z X C V B N M Borrar 1 2 3",
+    "↓ Z X C V B N M ␡ 1 2 3",
     "- . Espacio .com 0 @ -"
 ];
 var keysMinuscula = [
+    "1 2 3 4 5 6 7 8 9 0 ␡",
     "q w e r t y u i o p 7 8 9",
     "a s d f g h j k l ñ 4 5 6",
-    "↑ z x c v b n m Borrar 1 2 3",
+    "↑ z x c v b n m ␡ 1 2 3",
     "- . Espacio .com 0 @ -"
 ];
 var keysSpetial = [
     "! # $ % & / ( ) = ?",
     "^ ¿ | ° * ´ { } [ ]",
-    "↓ ; , : < > + ~ Borrar",
+    "↓ ; , : < > + ~ ␡",
     "- . Espacio .com"
 ];
 var Keyboard = function (_a) {
-    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, backgroundButtonDeleteStyle = _a.backgroundButtonDeleteStyle, backgroundButtonPuntoStyle = _a.backgroundButtonPuntoStyle, onClick = _a.onClick;
+    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, backgroundButtonPuntoStyle = _a.backgroundButtonPuntoStyle, onClick = _a.onClick;
     var _b = (0, react_1.useState)([]), keyAlpha = _b[0], setKeyAlpha = _b[1];
     var _c = (0, react_1.useState)(0), position = _c[0], setPosition = _c[1];
     (0, react_1.useEffect)(function () {
@@ -85,38 +86,6 @@ var Keyboard = function (_a) {
                                 setPosition((value.length + 4));
                             }
                         } }, ".com"));
-                case 'Borrar':
-                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonDeleteStyle, onClick: function () {
-                            if (inputRef.current) {
-                                var text = inputRef.current.value;
-                                if (text.length > 1) {
-                                    var valueLength = text.length;
-                                    if (position === valueLength) {
-                                        onClick(text.substring(0, (text.length - 1)));
-                                    }
-                                    else {
-                                        if (position > 0) {
-                                            var izq = text.substring(0, position - 1);
-                                            var der = text.slice(position);
-                                            onClick("".concat(izq).concat(der));
-                                        }
-                                    }
-                                    if (position > 0) {
-                                        inputRef.current.setSelectionRange(position - 1, position - 1);
-                                        setPosition(position - 1);
-                                    }
-                                    else {
-                                        inputRef.current.setSelectionRange(0, 0);
-                                        setPosition(0);
-                                    }
-                                }
-                                else { //borra de 1to1 desde el final hacia atraz.
-                                    onClick('');
-                                    inputRef.current.setSelectionRange(0, 0);
-                                    setPosition(0);
-                                }
-                            }
-                        } }, item));
                 case 'Espacio':
                     return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
                             //onClick(item);
@@ -129,8 +98,40 @@ var Keyboard = function (_a) {
                                 setKeyAlpha(keysMayuscula);
                                 return;
                             }
-                            else if (item === '↓') {
+                            if (item === '↓') {
                                 setKeyAlpha(keysMinuscula);
+                                return;
+                            }
+                            if (item === '␡') {
+                                if (inputRef.current) {
+                                    var text = inputRef.current.value;
+                                    if (text.length > 1) {
+                                        var valueLength = text.length;
+                                        if (position === valueLength) {
+                                            onClick(text.substring(0, (text.length - 1)));
+                                        }
+                                        else {
+                                            if (position > 0) {
+                                                var izq = text.substring(0, position - 1);
+                                                var der = text.slice(position);
+                                                onClick("".concat(izq).concat(der));
+                                            }
+                                        }
+                                        if (position > 0) {
+                                            inputRef.current.setSelectionRange(position - 1, position - 1);
+                                            setPosition(position - 1);
+                                        }
+                                        else {
+                                            inputRef.current.setSelectionRange(0, 0);
+                                            setPosition(0);
+                                        }
+                                    }
+                                    else { //borra de 1to1 desde el final hacia atraz.
+                                        onClick('');
+                                        inputRef.current.setSelectionRange(0, 0);
+                                        setPosition(0);
+                                    }
+                                }
                                 return;
                             }
                             if (inputRef.current) {

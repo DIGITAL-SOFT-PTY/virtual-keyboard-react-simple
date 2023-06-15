@@ -14,7 +14,6 @@ interface ComponentProps {
   backgroundStyle: CSSProperties;
   backgroundButtonStyle: CSSProperties;
   backgroundButtonSpaceStyle: CSSProperties;
-  backgroundButtonDeleteStyle: CSSProperties;
   backgroundButtonPuntoStyle: CSSProperties;
   onClick: (value: string) => void;
   useSund?: boolean;
@@ -23,21 +22,22 @@ interface ComponentProps {
 const keysMayuscula: any = [
   "Q W E R T Y U I O P 7 8 9",
   "A S D F G H J K L Ñ 4 5 6",
-  "↓ Z X C V B N M Borrar 1 2 3",
+  "↓ Z X C V B N M ␡ 1 2 3",
   "- . Espacio .com 0 @ -"
 ];
 
 const keysMinuscula: any = [
+  "1 2 3 4 5 6 7 8 9 0 ␡",
   "q w e r t y u i o p 7 8 9",
   "a s d f g h j k l ñ 4 5 6",
-  "↑ z x c v b n m Borrar 1 2 3",
+  "↑ z x c v b n m ␡ 1 2 3",
   "- . Espacio .com 0 @ -"
 ];
 
 const keysSpetial: any = [
   "! # $ % & / ( ) = ?",
   "^ ¿ | ° * ´ { } [ ]",
-  "↓ ; , : < > + ~ Borrar",
+  "↓ ; , : < > + ~ ␡",
   "- . Espacio .com"
 ];
 
@@ -46,7 +46,6 @@ export const Keyboard: React.FC<ComponentProps> = ({
   backgroundStyle,
   backgroundButtonStyle,
   backgroundButtonSpaceStyle,
-  backgroundButtonDeleteStyle,
   backgroundButtonPuntoStyle,
   onClick,
 }) => {
@@ -86,43 +85,6 @@ export const Keyboard: React.FC<ComponentProps> = ({
             </div>
           );
 
-        case 'Borrar':
-          return (
-            <div key={`${index}_${indexR}`}
-              style={backgroundButtonDeleteStyle}
-              onClick={() => {
-                if (inputRef.current) {
-                  const text = inputRef.current.value;
-                  if (text.length > 1) {
-                    const valueLength = text.length;
-                    if (position === valueLength) {
-                      onClick(text.substring(0, (text.length - 1)));
-                    } else {
-                      if (position > 0) {
-                        const izq = text.substring(0, position - 1)
-                        const der = text.slice(position);
-                        onClick(`${izq}${der}`);
-                      }
-                    }
-
-                    if (position > 0) {
-                      inputRef.current.setSelectionRange(position - 1, position - 1);
-                      setPosition(position - 1);
-                    } else {
-                      inputRef.current.setSelectionRange(0, 0);
-                      setPosition(0);
-                    }
-                  } else { //borra de 1to1 desde el final hacia atraz.
-                    onClick('');
-                    inputRef.current.setSelectionRange(0, 0);
-                    setPosition(0);
-                  }
-                }
-              }}>
-              {item}
-            </div>
-          );
-
         case 'Espacio':
           return (
             <div key={`${index}_${indexR}`}
@@ -144,10 +106,45 @@ export const Keyboard: React.FC<ComponentProps> = ({
                 if (item === '↑') {
                   setKeyAlpha(keysMayuscula);
                   return;
-                } else if (item === '↓') {
+                }
+
+                if (item === '↓') {
                   setKeyAlpha(keysMinuscula);
                   return;
                 }
+
+                if (item === '␡') {
+                  if (inputRef.current) {
+                    const text = inputRef.current.value;
+                    if (text.length > 1) {
+                      const valueLength = text.length;
+                      if (position === valueLength) {
+                        onClick(text.substring(0, (text.length - 1)));
+                      } else {
+                        if (position > 0) {
+                          const izq = text.substring(0, position - 1)
+                          const der = text.slice(position);
+                          onClick(`${izq}${der}`);
+                        }
+                      }
+
+                      if (position > 0) {
+                        inputRef.current.setSelectionRange(position - 1, position - 1);
+                        setPosition(position - 1);
+                      } else {
+                        inputRef.current.setSelectionRange(0, 0);
+                        setPosition(0);
+                      }
+                    } else { //borra de 1to1 desde el final hacia atraz.
+                      onClick('');
+                      inputRef.current.setSelectionRange(0, 0);
+                      setPosition(0);
+                    }
+                  }
+                  return;
+                }
+
+
 
                 if (inputRef.current) {
                   const text = inputRef.current.value;

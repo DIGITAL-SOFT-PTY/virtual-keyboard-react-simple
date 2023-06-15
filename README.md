@@ -50,7 +50,6 @@ prop                          | type     | default      | notes                 
 | backgroundStyle             | Object   | true         | contiene el style del background del teclado.                                           |
 | backgroundButtonStyle       | Object   | true         | contiene el style de background de los botones   del teclado.                           |
 | backgroundButtonSpaceStyle  | Object   | true         | contiene el style del botón de espacio.                                                 |
-| backgroundButtonDeleteStyle | Object   | true         | contiene el style del botón de eliminar.                                                |
 | backgroundButtonPuntoStyle  | Object   | true         | contiene el style del botón de punto.                                                   |
 
 ## <i class="fas fa-code-branch"></i> Otras Versiones
