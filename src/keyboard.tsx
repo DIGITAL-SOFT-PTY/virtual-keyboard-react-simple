@@ -20,25 +20,26 @@ interface ComponentProps {
 
 const keysMayuscula: any = [
   "1 2 3 4 5 6 7 8 9 0 ␡",
-  "Q W E R T Y U I O P",
-  "A S D F G H J K L Ñ",
-  "↓ Z X C V B N M ␡",
-  "- . Espacio .COM 0 @ -"
+  "Q W E R T Y U I O P { }",
+  "A S D F G H J K L Ñ [ ]",
+  "↓ Z X C V B N M @ - _ *",
+  "@ @ Espacio .COM . , ;"
 ];
 
 const keysMinuscula: any = [
   "1 2 3 4 5 6 7 8 9 0 ␡",
-  "q w e r t y u i o p",
-  "a s d f g h j k l ñ",
-  "↑ z x c v b n m",
-  "- . Espacio .com 0 @ -"
+  "q w e r t y u i o p { }",
+  "a s d f g h j k l ñ [ ]",
+  "↑ z x c v b n m @ - _ *",
+  "@ @ Espacio .com . , ;"
 ];
 
 const keysSpetial: any = [
+  "1 2 3 4 5 6 7 8 9 0 ␡",
   "! # $ % & / ( ) = ?",
-  "^ ¿ | ° * ´ { } [ ]",
-  "↓ ; , : < > + ~ ␡",
-  "- . Espacio .com"
+  "CAPS  ^ ¿ | ° * ´ { } [ ]",
+  "↓ ; , : < > + ~",
+  "- . Espacio .com @ -"
 ];
 
 export const Keyboard: React.FC<ComponentProps> = ({
@@ -93,6 +94,11 @@ export const Keyboard: React.FC<ComponentProps> = ({
 
                 if (item === '↓') {
                   setKeyAlpha(keysMinuscula);
+                  return;
+                }
+
+                if (item === 'CAPS') {
+                  setKeyAlpha(keysSpetial);
                   return;
                 }
 
@@ -180,16 +186,13 @@ export const Keyboard: React.FC<ComponentProps> = ({
 
 const ContainerMaster = styled.div`
   display: flex;
-  width: 1065px;
-  height: 361px;
-  bottom: 0px;
+  bottom: 5px;
   padding: 0.5rem;
   z-index: 100;
 `;
 
 const ContainerRow = styled.div`
   background: transparent;
-  width: 1065px;
 `;
 
 const Row = styled.div`
