@@ -42,25 +42,28 @@ var react_1 = __importStar(require("react"));
 var styled_components_1 = __importDefault(require("styled-components"));
 ;
 var keysMayuscula = [
-    "Q W E R T Y U I O P 7 8 9",
-    "A S D F G H J K L Ñ 4 5 6",
-    "↓ Z X C V B N M Borrar 1 2 3",
-    "- . Espacio .com 0 @ -"
+    "1 2 3 4 5 6 7 8 9 0 ␡",
+    "Q W E R T Y U I O P { }",
+    "A S D F G H J K L Ñ [ ]",
+    "↓ Z X C V B N M @ - _ *",
+    "@ @ Espacio . , ;"
 ];
 var keysMinuscula = [
-    "q w e r t y u i o p 7 8 9",
-    "a s d f g h j k l ñ 4 5 6",
-    "↑ z x c v b n m Borrar 1 2 3",
-    "- . Espacio .com 0 @ -"
+    "1 2 3 4 5 6 7 8 9 0 ␡",
+    "q w e r t y u i o p { }",
+    "a s d f g h j k l ñ [ ]",
+    "↑ z x c v b n m @ - _ *",
+    "@ @ Espacio . , ;"
 ];
 var keysSpetial = [
+    "1 2 3 4 5 6 7 8 9 0 ␡",
     "! # $ % & / ( ) = ?",
-    "^ ¿ | ° * ´ { } [ ]",
-    "↓ ; , : < > + ~ Borrar",
-    "- . Espacio .com"
+    "CAPS  ^ ¿ | ° * ´ { } [ ]",
+    "↓ ; , : < > + ~",
+    "- . Espacio @ -"
 ];
 var Keyboard = function (_a) {
-    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, backgroundButtonDeleteStyle = _a.backgroundButtonDeleteStyle, backgroundButtonPuntoStyle = _a.backgroundButtonPuntoStyle, onClick = _a.onClick;
+    var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, onClick = _a.onClick;
     var _b = (0, react_1.useState)([]), keyAlpha = _b[0], setKeyAlpha = _b[1];
     var _c = (0, react_1.useState)(0), position = _c[0], setPosition = _c[1];
     (0, react_1.useEffect)(function () {
@@ -76,61 +79,83 @@ var Keyboard = function (_a) {
         var key = itemR.split(' ');
         return (key.map(function (item, index) {
             switch (item) {
-                case '.com':
-                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonPuntoStyle, onClick: function () {
-                            if (inputRef.current) {
-                                var value = inputRef.current.value;
-                                onClick("".concat(value).concat(item).toUpperCase());
-                                inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
-                                setPosition((value.length + 4));
-                            }
-                        } }, ".com"));
-                case 'Borrar':
-                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonDeleteStyle, onClick: function () {
+                case 'Espacio':
+                    return (react_1.default.createElement(ButtonSpace, { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
                             if (inputRef.current) {
                                 var text = inputRef.current.value;
-                                if (text.length > 1) {
+                                if (text.length <= 0) {
+                                    onClick("".concat(text).concat(" "));
+                                }
+                                else {
                                     var valueLength = text.length;
+                                    onClick("".concat(text).concat(" "));
                                     if (position === valueLength) {
-                                        onClick(text.substring(0, (text.length - 1)));
+                                        onClick("".concat(text).concat(" "));
                                     }
                                     else {
-                                        if (position > 0) {
-                                            var izq = text.substring(0, position - 1);
-                                            var der = text.slice(position);
-                                            onClick("".concat(izq).concat(der));
-                                        }
-                                    }
-                                    if (position > 0) {
-                                        inputRef.current.setSelectionRange(position - 1, position - 1);
-                                        setPosition(position - 1);
-                                    }
-                                    else {
-                                        inputRef.current.setSelectionRange(0, 0);
-                                        setPosition(0);
+                                        var izq = text.substring(0, position);
+                                        var der = text.slice(position);
+                                        onClick("".concat(izq).concat(" ").concat(der));
                                     }
                                 }
-                                else { //borra de 1to1 desde el final hacia atraz.
-                                    onClick('');
-                                    inputRef.current.setSelectionRange(0, 0);
-                                    setPosition(0);
-                                }
+                                inputRef.current.setSelectionRange(position + 1, position + 1);
+                                setPosition((position + 1));
                             }
-                        } }, item));
-                case 'Espacio':
-                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
-                            //onClick(item);
-                            //if (isValidando)
-                            //return;
-                        } }, " "));
+                        } },
+                        react_1.default.createElement(Text, null, "")));
                 default:
                     return (react_1.default.createElement(Button, { key: "".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
                             if (item === '↑') {
                                 setKeyAlpha(keysMayuscula);
                                 return;
                             }
-                            else if (item === '↓') {
+                            if (item === '↓') {
                                 setKeyAlpha(keysMinuscula);
+                                return;
+                            }
+                            if (item === 'CAPS') {
+                                setKeyAlpha(keysSpetial);
+                                return;
+                            }
+                            if (item === '.com' || item === '.COM') {
+                                if (inputRef.current) {
+                                    var value = inputRef.current.value;
+                                    onClick("".concat(value).concat(item).toUpperCase());
+                                    inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
+                                    setPosition((value.length + 4));
+                                }
+                                return;
+                            }
+                            if (item === '␡') {
+                                if (inputRef.current) {
+                                    var text = inputRef.current.value;
+                                    if (text.length > 1) {
+                                        var valueLength = text.length;
+                                        if (position === valueLength) {
+                                            onClick(text.substring(0, (text.length - 1)));
+                                        }
+                                        else {
+                                            if (position > 0) {
+                                                var izq = text.substring(0, position - 1);
+                                                var der = text.slice(position);
+                                                onClick("".concat(izq).concat(der));
+                                            }
+                                        }
+                                        if (position > 0) {
+                                            inputRef.current.setSelectionRange(position - 1, position - 1);
+                                            setPosition(position - 1);
+                                        }
+                                        else {
+                                            inputRef.current.setSelectionRange(0, 0);
+                                            setPosition(0);
+                                        }
+                                    }
+                                    else { //borra de 1to1 desde el final hacia atraz.
+                                        onClick('');
+                                        inputRef.current.setSelectionRange(0, 0);
+                                        setPosition(0);
+                                    }
+                                }
                                 return;
                             }
                             if (inputRef.current) {
@@ -153,7 +178,8 @@ var Keyboard = function (_a) {
                                 inputRef.current.setSelectionRange(position + 1, position + 1);
                                 setPosition((position + 1));
                             }
-                        } }, item));
+                        } },
+                        react_1.default.createElement(Text, null, "".concat(item))));
             }
         }));
     };
@@ -163,8 +189,10 @@ var Keyboard = function (_a) {
         }))));
 };
 exports.Keyboard = Keyboard;
-var ContainerMaster = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  width: 1065px;\n  height: 361px;\n  bottom: 0px;\n  padding: 0.5rem;\n  z-index: 100;\n"], ["\n  display: flex;\n  width: 1065px;\n  height: 361px;\n  bottom: 0px;\n  padding: 0.5rem;\n  z-index: 100;\n"])));
-var ContainerRow = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background: transparent;\n  width: 1065px;\n"], ["\n  background: transparent;\n  width: 1065px;\n"])));
-var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"], ["\n  display: flex;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"])));
-var Button = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"])));
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var ContainerMaster = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  bottom: 5px;\n  padding: 0.5rem;\n  z-index: 100;\n"], ["\n  display: flex;\n  bottom: 5px;\n  padding: 0.5rem;\n  z-index: 100;\n"])));
+var ContainerRow = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background: transparent;\n"], ["\n  background: transparent;\n"])));
+var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  height: 40px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 4px;\n"], ["\n  display: flex;\n  justify-content: center;\n  height: 40px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 4px;\n"])));
+var Button = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"])));
+var ButtonSpace = styled_components_1.default.div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 300px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 300px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"])));
+var Text = styled_components_1.default.span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  font-size: 24px;\n  color: #4D4D4F;\n  font-weight: bold;\n  font-family: monospace;\n"], ["\n  font-size: 24px;\n  color: #4D4D4F;\n  font-weight: bold;\n  font-family: monospace;\n"])));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;

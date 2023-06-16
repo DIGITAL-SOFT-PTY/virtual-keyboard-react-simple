@@ -11,34 +11,36 @@ import styled, { css } from 'styled-components';
 
 interface ComponentProps {
   inputRef: any,
-  backgroundStyle: CSSProperties;
-  backgroundButtonStyle: CSSProperties;
-  backgroundButtonSpaceStyle: CSSProperties;
-  backgroundButtonDeleteStyle: CSSProperties;
-  backgroundButtonPuntoStyle: CSSProperties;
+  backgroundStyle?: CSSProperties;
+  backgroundButtonStyle?: CSSProperties;
+  backgroundButtonSpaceStyle?: CSSProperties;
   onClick: (value: string) => void;
   useSund?: boolean;
 };
 
-const keysMayuscula: any = [ 
-  "Q W E R T Y U I O P 7 8 9",
-  "A S D F G H J K L Ñ 4 5 6",
-  "↓ Z X C V B N M Borrar 1 2 3",
-  "- . Espacio .com 0 @ -"
-];
 
+const keysMayuscula: any = [
+  "1 2 3 4 5 6 7 8 9 0 ␡",
+  "Q W E R T Y U I O P { }",
+  "A S D F G H J K L Ñ [ ]",
+  "↓ Z X C V B N M @ - _ *",
+  "@ @ Espacio . , ;"
+];
+ 
 const keysMinuscula: any = [
-  "q w e r t y u i o p 7 8 9",
-  "a s d f g h j k l ñ 4 5 6",
-  "↑ z x c v b n m Borrar 1 2 3",
-  "- . Espacio .com 0 @ -"
+  "1 2 3 4 5 6 7 8 9 0 ␡",
+  "q w e r t y u i o p { }",
+  "a s d f g h j k l ñ [ ]",
+  "↑ z x c v b n m @ - _ *",
+  "@ @ Espacio . , ;"
 ];
 
 const keysSpetial: any = [
+  "1 2 3 4 5 6 7 8 9 0 ␡",
   "! # $ % & / ( ) = ?",
-  "^ ¿ | ° * ´ { } [ ]",
-  "↓ ; , : < > + ~ Borrar",
-  "- . Espacio .com"
+  "CAPS  ^ ¿ | ° * ´ { } [ ]",
+  "↓ ; , : < > + ~",
+  "- . Espacio @ -"
 ];
 
 export const Keyboard: React.FC<ComponentProps> = ({
@@ -46,8 +48,6 @@ export const Keyboard: React.FC<ComponentProps> = ({
   backgroundStyle,
   backgroundButtonStyle,
   backgroundButtonSpaceStyle,
-  backgroundButtonDeleteStyle,
-  backgroundButtonPuntoStyle,
   onClick,
 }) => {
 
@@ -70,70 +70,32 @@ export const Keyboard: React.FC<ComponentProps> = ({
 
     return (key.map((item: string, index: any) => {
       switch (item) {
-        case '.com':
+        case 'Espacio':
           return (
-            <div key={`${index}_${indexR}`}
-              style={backgroundButtonPuntoStyle}
-              onClick={() => {
-                if (inputRef.current) {
-                  const value = inputRef.current.value;
-                  onClick(`${value}${item}`.toUpperCase());
-                  inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
-                  setPosition((value.length + 4));
-                }
-              }}>
-              {`.com`}
-            </div>
-          );
-
-        case 'Borrar':
-          return (
-            <div key={`${index}_${indexR}`}
-              style={backgroundButtonDeleteStyle}
+            <ButtonSpace key={`${index}_${indexR}`}
+              style={backgroundButtonSpaceStyle}
               onClick={() => {
                 if (inputRef.current) {
                   const text = inputRef.current.value;
-                  if (text.length > 1) {
+                  if (text.length <= 0) {
+                    onClick(`${text}${` `}`);
+                  } else {
                     const valueLength = text.length;
+                    onClick(`${text}${` `}`);
                     if (position === valueLength) {
-                      onClick(text.substring(0, (text.length - 1)));
+                      onClick(`${text}${` `}`);
                     } else {
-                      if (position > 0) {
-                        const izq = text.substring(0, position - 1)
-                        const der = text.slice(position);
-                        onClick(`${izq}${der}`);
-                      }
+                      const izq = text.substring(0, position)
+                      const der = text.slice(position);
+                      onClick(`${izq}${` `}${der}`);
                     }
-
-                    if (position > 0) {
-                      inputRef.current.setSelectionRange(position - 1, position - 1);
-                      setPosition(position - 1);
-                    } else {
-                      inputRef.current.setSelectionRange(0, 0);
-                      setPosition(0);
-                    }
-                  } else { //borra de 1to1 desde el final hacia atraz.
-                    onClick('');
-                    inputRef.current.setSelectionRange(0, 0);
-                    setPosition(0);
                   }
+                  inputRef.current.setSelectionRange(position + 1, position + 1);
+                  setPosition((position + 1));
                 }
               }}>
-              {item}
-            </div>
-          );
-
-        case 'Espacio':
-          return (
-            <div key={`${index}_${indexR}`}
-              style={backgroundButtonSpaceStyle}
-              onClick={() => {
-                //onClick(item);
-                //if (isValidando)
-                //return;
-              }}>
-              {` `}
-            </div>
+              <Text>{``}</Text>
+            </ButtonSpace>
           );
         default:
           return (
@@ -144,8 +106,56 @@ export const Keyboard: React.FC<ComponentProps> = ({
                 if (item === '↑') {
                   setKeyAlpha(keysMayuscula);
                   return;
-                } else if (item === '↓') {
+                }
+
+                if (item === '↓') {
                   setKeyAlpha(keysMinuscula);
+                  return;
+                }
+
+                if (item === 'CAPS') {
+                  setKeyAlpha(keysSpetial);
+                  return;
+                }
+
+                if (item === '.com' || item === '.COM') {
+                  if (inputRef.current) {
+                    const value = inputRef.current.value;
+                    onClick(`${value}${item}`.toUpperCase());
+                    inputRef.current.setSelectionRange(value.length + 4, value.length + 4);
+                    setPosition((value.length + 4));
+                  }
+                  return;
+                }
+
+                if (item === '␡') {
+                  if (inputRef.current) {
+                    const text = inputRef.current.value;
+                    if (text.length > 1) {
+                      const valueLength = text.length;
+                      if (position === valueLength) {
+                        onClick(text.substring(0, (text.length - 1)));
+                      } else {
+                        if (position > 0) {
+                          const izq = text.substring(0, position - 1)
+                          const der = text.slice(position);
+                          onClick(`${izq}${der}`);
+                        }
+                      }
+
+                      if (position > 0) {
+                        inputRef.current.setSelectionRange(position - 1, position - 1);
+                        setPosition(position - 1);
+                      } else {
+                        inputRef.current.setSelectionRange(0, 0);
+                        setPosition(0);
+                      }
+                    } else { //borra de 1to1 desde el final hacia atraz.
+                      onClick('');
+                      inputRef.current.setSelectionRange(0, 0);
+                      setPosition(0);
+                    }
+                  }
                   return;
                 }
 
@@ -168,7 +178,7 @@ export const Keyboard: React.FC<ComponentProps> = ({
                   setPosition((position + 1));
                 }
               }} >
-              {item}
+              <Text>{`${item}`}</Text>
             </Button>
           );
       }
@@ -192,34 +202,53 @@ export const Keyboard: React.FC<ComponentProps> = ({
 
 const ContainerMaster = styled.div`
   display: flex;
-  width: 1065px;
-  height: 361px;
-  bottom: 0px;
+  bottom: 5px;
   padding: 0.5rem;
   z-index: 100;
 `;
 
 const ContainerRow = styled.div`
   background: transparent;
-  width: 1065px;
 `;
 
 const Row = styled.div`
   display: flex;
-  height: 80px;
+  justify-content: center;
+  height: 40px;
   margin-left: 0px;
   margin-top: 0px;
-  padding: 0px;
+  padding: 4px;
 `;
 
 const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  background-size: contain;
+  background: #fcfcfc;
+  border-radius: 0.5rem;
+  margin: 5px;
+`;
+
+const ButtonSpace = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+  background-size: contain;
+  background: #fcfcfc;
+  border-radius: 0.5rem;
+  margin: 5px;
+`;
+
+const Text = styled.span`
+  font-size: 24px;
   color: #4D4D4F;
-  font-size: 30px;
   font-weight: bold;
+  font-family: monospace;
 `;
