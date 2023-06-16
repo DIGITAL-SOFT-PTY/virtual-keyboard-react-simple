@@ -46,21 +46,21 @@ var keysMayuscula = [
     "Q W E R T Y U I O P { }",
     "A S D F G H J K L Ñ [ ]",
     "↓ Z X C V B N M @ - _ *",
-    "@ @ Espacio .COM . , ;"
+    "@ @ Espacio . , ;"
 ];
 var keysMinuscula = [
     "1 2 3 4 5 6 7 8 9 0 ␡",
     "q w e r t y u i o p { }",
     "a s d f g h j k l ñ [ ]",
     "↑ z x c v b n m @ - _ *",
-    "@ @ Espacio .com . , ;"
+    "@ @ Espacio . , ;"
 ];
 var keysSpetial = [
     "1 2 3 4 5 6 7 8 9 0 ␡",
     "! # $ % & / ( ) = ?",
     "CAPS  ^ ¿ | ° * ´ { } [ ]",
     "↓ ; , : < > + ~",
-    "- . Espacio .com @ -"
+    "- . Espacio @ -"
 ];
 var Keyboard = function (_a) {
     var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, onClick = _a.onClick;
@@ -80,11 +80,29 @@ var Keyboard = function (_a) {
         return (key.map(function (item, index) {
             switch (item) {
                 case 'Espacio':
-                    return (react_1.default.createElement("div", { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
-                            //onClick(item);
-                            //if (isValidando)
-                            //return;
-                        } }, " "));
+                    return (react_1.default.createElement(ButtonSpace, { key: "".concat(index, "_").concat(indexR), style: backgroundButtonSpaceStyle, onClick: function () {
+                            if (inputRef.current) {
+                                var text = inputRef.current.value;
+                                if (text.length <= 0) {
+                                    onClick("".concat(text).concat(" "));
+                                }
+                                else {
+                                    var valueLength = text.length;
+                                    onClick("".concat(text).concat(" "));
+                                    if (position === valueLength) {
+                                        onClick("".concat(text).concat(" "));
+                                    }
+                                    else {
+                                        var izq = text.substring(0, position);
+                                        var der = text.slice(position);
+                                        onClick("".concat(izq).concat(" ").concat(der));
+                                    }
+                                }
+                                inputRef.current.setSelectionRange(position + 1, position + 1);
+                                setPosition((position + 1));
+                            }
+                        } },
+                        react_1.default.createElement(Text, null, "")));
                 default:
                     return (react_1.default.createElement(Button, { key: "".concat(index, "_").concat(indexR), style: backgroundButtonStyle, onClick: function () {
                             if (item === '↑') {
@@ -161,7 +179,7 @@ var Keyboard = function (_a) {
                                 setPosition((position + 1));
                             }
                         } },
-                        react_1.default.createElement(Text, null, item)));
+                        react_1.default.createElement(Text, null, "".concat(item))));
             }
         }));
     };
@@ -173,7 +191,8 @@ var Keyboard = function (_a) {
 exports.Keyboard = Keyboard;
 var ContainerMaster = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  bottom: 5px;\n  padding: 0.5rem;\n  z-index: 100;\n"], ["\n  display: flex;\n  bottom: 5px;\n  padding: 0.5rem;\n  z-index: 100;\n"])));
 var ContainerRow = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background: transparent;\n"], ["\n  background: transparent;\n"])));
-var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"], ["\n  display: flex;\n  justify-content: center;\n  height: 80px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 0px;\n"])));
-var Button = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 80px;\n  height: 80px;\n  cursor: pointer;\n  color: #4D4D4F;\n  font-size: 30px;\n  font-weight: bold;\n"])));
-var Text = styled_components_1.default.span(templateObject_5 || (templateObject_5 = __makeTemplateObject([""], [""])));
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+var Row = styled_components_1.default.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  height: 40px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 4px;\n"], ["\n  display: flex;\n  justify-content: center;\n  height: 40px;\n  margin-left: 0px;\n  margin-top: 0px;\n  padding: 4px;\n"])));
+var Button = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"])));
+var ButtonSpace = styled_components_1.default.div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 300px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"], ["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 300px;\n  height: 40px;\n  cursor: pointer;\n  background-size: contain;\n  background: #fcfcfc;\n  border-radius: 0.5rem;\n  margin: 5px;\n"])));
+var Text = styled_components_1.default.span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  font-size: 24px;\n  color: #4D4D4F;\n  font-weight: bold;\n  font-family: monospace;\n"], ["\n  font-size: 24px;\n  color: #4D4D4F;\n  font-weight: bold;\n  font-family: monospace;\n"])));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;

@@ -5,6 +5,10 @@
 	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
   </a>
 
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
+	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual2.png">
+  </a>
+
   <a href="https://www.npmjs.com/package/virtual-keyboard-react-simple">
     <img src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/npm.svg" alt="npm version">
   </a>
@@ -48,13 +52,8 @@ prop                          | type     | default      | notes                 
 | onClick                     | function | true         | callback para recibir el nuevo texto.                                                   |
 | inputRef                    | input    | true         | contiene el ref del input.                                                              |
 | backgroundStyle             | Object   | true         | contiene el style del background del teclado.                                           |
-| backgroundButtonStyle       | Object   | true         | contiene el style de background de los botones   del teclado.                           |
-| backgroundButtonSpaceStyle  | Object   | true         | contiene el style del botón de espacio.                                                 |
-
-## <i class="fas fa-code-branch"></i> Otras Versiones
-- [React.js](https://github.com/hodgef/react-simple-keyboard)
-- [Angular Js](https://github.com/parwinder-singh/virtual-keyboard)
-- [Vue.js](https://github.com/martywallace/vue-keyboard)
+| backgroundButtonStyle       | Object   | false        | contiene el style de background de los botones del teclado (Optional).                  |
+| backgroundButtonSpaceStyle  | Object   | false        | contiene el style del botón de espacio (Optional).                                      |
 
 
 ## 🎯 Compatibility
