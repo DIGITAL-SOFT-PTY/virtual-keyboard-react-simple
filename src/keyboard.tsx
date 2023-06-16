@@ -20,7 +20,7 @@ interface ComponentProps {
   useSund?: boolean;
 };
 
-const keysMayuscula: any = [
+const keysMayuscula: any = [ 
   "Q W E R T Y U I O P 7 8 9",
   "A S D F G H J K L Ñ 4 5 6",
   "↓ Z X C V B N M Borrar 1 2 3",
