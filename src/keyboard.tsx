@@ -5,7 +5,6 @@
  * Date Start: 10-junio-2023 15:00
  */
 
-
 import React, { CSSProperties, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
