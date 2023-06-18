@@ -45,23 +45,24 @@ var keysMayuscula = [
     "1 2 3 4 5 6 7 8 9 0 ␡",
     "Q W E R T Y U I O P { }",
     "A S D F G H J K L Ñ [ ]",
-    "↓ Z X C V B N M @ - _ *",
-    "@ @ Espacio . , ;"
+    "↓ Z X C V B N M ~ - _ *",
+    "123 @ Espacio . , ;"
 ];
 var keysMinuscula = [
     "1 2 3 4 5 6 7 8 9 0 ␡",
     "q w e r t y u i o p { }",
     "a s d f g h j k l ñ [ ]",
-    "↑ z x c v b n m @ - _ *",
-    "@ @ Espacio . , ;"
+    "↑ z x c v b n m ~ - _ *",
+    "123 @ Espacio . , ;"
 ];
 var keysSpetial = [
     "1 2 3 4 5 6 7 8 9 0 ␡",
-    "! # $ % & / ( ) = ?",
-    "CAPS  ^ ¿ | ° * ´ { } [ ]",
-    "↓ ; , : < > + ~",
-    "- . Espacio @ -"
+    "¡ ! { } ( ) [ ] ¿ ? ° ℃",
+    "+ | * ´ $ % & = # ^ $ ℉",
+    "; , : ~ ½ © ₡ € ℗ ® \\ /",
+    "abc . @ - < > « » ª ' ` \""
 ];
+//↑ ↓ '
 var Keyboard = function (_a) {
     var inputRef = _a.inputRef, backgroundStyle = _a.backgroundStyle, backgroundButtonStyle = _a.backgroundButtonStyle, backgroundButtonSpaceStyle = _a.backgroundButtonSpaceStyle, onClick = _a.onClick;
     var _b = (0, react_1.useState)([]), keyAlpha = _b[0], setKeyAlpha = _b[1];
@@ -113,8 +114,12 @@ var Keyboard = function (_a) {
                                 setKeyAlpha(keysMinuscula);
                                 return;
                             }
-                            if (item === 'CAPS') {
+                            if (item === '123') {
                                 setKeyAlpha(keysSpetial);
+                                return;
+                            }
+                            if (item === 'abc') {
+                                setKeyAlpha(keysMinuscula);
                                 return;
                             }
                             if (item === '.com' || item === '.COM') {

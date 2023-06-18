@@ -5,8 +5,8 @@
 	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
   </a>
 
-  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual.png">
-	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual2.png">
+  <a href="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual-caracteres-especiales.png">
+	<img alt="keyboard virtual: Javascript Virtual Keyboard" src="https://github.com/DIGITAL-SOFT-PTY/virtual-keyboard-react-simple/blob/main/resources/teclado-virtual-caracteres-especiales.png">
   </a>
 
   <a href="https://www.npmjs.com/package/virtual-keyboard-react-simple">
